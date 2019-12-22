@@ -9,5 +9,13 @@ router.get("/books", (req, res) => {
         .catch(err => res.status(422).json(err));
 });
 
+router.route("/saved")
+  .get(booksController.findAll)
+  .post(booksController.create)
+
+router.route("/saved/:id")
+  .delete(booksController.remove);
+
 
 module.exports = router;
+
