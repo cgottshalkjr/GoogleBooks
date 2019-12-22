@@ -2,11 +2,10 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer>
-      <hr />
-      <p className="pull-right">
-        l;dlf,mldmf 
-      </p>
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">BUILT WITH REACT!</span>
+      </div>
     </footer>
   );
 }

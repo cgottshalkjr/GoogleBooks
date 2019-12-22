@@ -80,7 +80,11 @@ class Home extends Component {
                                                     title={item.volumeInfo.title}
                                                     href={item.volumeInfo.previewLink}
                                                     description={item.volumeInfo.description}
-                                                    thumbnail={item.volumeInfo.imageLinks.thumbnail}
+                                                    thumbnail={
+                                                        item.volumeInfo.imageLinks
+                                                          ? item.volumeInfo.imageLinks.thumbnail
+                                                          : "https://visualhunt.com/photos/2/eyeglasses-on-open-book.jpg?s=s"
+                                                      }
                                                 />
                                             );
                                         })}
