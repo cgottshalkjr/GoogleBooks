@@ -1,11 +1,22 @@
 import React, { Component } from "react";
-
+import NavBar from "../components/NavBar";
 
 class Home extends Component {
-       render(){
-           <h1>Home</h1>
+    
+    state = {
+
+    }
+
+render(){
+        return (
+            <div>
+        <NavBar />
+           </div>
+        );
        }
 
 }
 
 export default Home;
+
+
