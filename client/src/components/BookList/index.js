@@ -1,6 +1,7 @@
 import React from "react";
 import {Container, Col, Row } from "../Grid";
-// import "./style.css";
+import "./booklist.css";
+
 
 // This component exports both the List and ListItem components
 
@@ -14,9 +15,12 @@ export function BookListItem({
     thumbnail,
     title,
     description,
-    href
+    author,
+    href,
+    id
 }) {
     return (
+        <div className="card shadow-lg m-2 bg-white rounded">
         <li className="list-group-item">
             <Container>
                 <Row>
@@ -25,6 +29,7 @@ export function BookListItem({
                     </Col>
                     <Col size="xs-8 sm-9">
                         <h3>{title}</h3>
+                        <strong><span>Written by: {author}</span></strong>
                         <p>Description: {description}</p>
                         <a rel="noreferrer noopener" target="_blank" href={href}>
                           Checkout Book!
@@ -33,5 +38,6 @@ export function BookListItem({
                 </Row>
             </Container>
         </li>
+        </div>
     );
 }

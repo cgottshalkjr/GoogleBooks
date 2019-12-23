@@ -70,23 +70,30 @@ class Home extends Component {
                     <Row>
                         <Col size="xs-12">
                             {!this.state.books.length ? (
-                                <h1 className="text-center">No Books to Display</h1>
+                                <h2>No Books to Display</h2>
                             ) : (
                                     <BookList>
                                         {this.state.books.map(item => {
                                             return (
+                                                
+                                                    
                                                 <BookListItem
+
                                                     key={item.id}
                                                     title={item.volumeInfo.title}
+                                                    author={item.volumeInfo.authors || ["Unavailable Information"]}
                                                     href={item.volumeInfo.previewLink}
-                                                    description={item.volumeInfo.description}
+                                                    description={item.volumeInfo.description || "Unavailable Information"}
                                                     thumbnail={
                                                         item.volumeInfo.imageLinks
-                                                          ? item.volumeInfo.imageLinks.thumbnail
-                                                          : "https://visualhunt.com/photos/2/eyeglasses-on-open-book.jpg?s=s"
-                                                      }
+                                                            ? item.volumeInfo.imageLinks.thumbnail
+                                                            : "https://visualhunt.com/photos/2/eyeglasses-on-open-book.jpg?s=s"
+                                                    }
                                                 />
+                                                
+                                               
                                             );
+                                            
                                         })}
                                     </BookList>
                                 )}
