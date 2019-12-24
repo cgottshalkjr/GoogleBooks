@@ -3,12 +3,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 500px;
+    height: 400px;
 }
 
 h1 {
     color: white;
     text-shadow: 4px 4px black;
+    font-family: 'Hanalei Fill', cursive;
 }
 
 @media screen and (max-width: 700px) {
