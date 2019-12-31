@@ -29,36 +29,35 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-  //   handleSaveClick = id => {
-  //     this.state.books.map(item => {
-  //       if (item.id === id) {
-  //         let book = {
-  //           title: item.volumeInfo.title,
-  //           authors: item.volumeInfo.authors,
-  //           link: item.volumeInfo.previewLink,
-  //           image: item.volumeInfo.imageLinks.thumbnail,
-  //           description: item.volumeInfo.description
-  //         };
-  //         console.log(book);
-  //         API.saveBook(book)
-  //           .then(res => this.getSavedBooks())
-  //           .catch(err => console.log(err));
-  //       }
-  //     });
-  //   };
+    handleSaveClick = id => {
+      this.state.books.map(item => {
+        if (item.id === id) {
+          let book = {
+            title: item.volumeInfo.title,
+            authors: item.volumeInfo.authors,
+            link: item.volumeInfo.previewLink,
+            image: item.volumeInfo.imageLinks.thumbnail,
+            description: item.volumeInfo.description
+          };
+          console.log(book);
+          API.saveBook(book)
+          .catch(err => console.log(err));
+        }
+      });
+    };
 
-  handleSaveClick = id => {
-    const item = this.state.books.find(item => item.id === id);
+  // handleSaveClick = id => {
+  //   const item = this.state.books.find(item => item.id === id);
 
-    API.saveBook({
-      bookId: item.id,
-      title: item.volumeInfo.title,
-      authors: item.volumeInfo.authors,
-      link: item.volumeInfo.previewLink,
-      image: item.volumeInfo.imageLinks.thumbnail,
-      description: item.volumeInfo.description
-    }).then(() => this.getBooks());
-  };
+  //   API.saveBook({
+  //     bookId: item.id,
+  //     title: item.volumeInfo.title,
+  //     authors: item.volumeInfo.authors,
+  //     link: item.volumeInfo.previewLink,
+  //     image: item.volumeInfo.imageLinks.thumbnail,
+  //     description: item.volumeInfo.description
+  //   }).then(() => this.getBooks());
+  // };
 
   render() {
     return (

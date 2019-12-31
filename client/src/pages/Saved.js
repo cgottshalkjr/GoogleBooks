@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { BookList, BookListItem } from "../components/BookList";
+import { SavedBookList, BookListItem } from "../components/SavedBookList";
 
 class Saved extends Component {
   state = {
@@ -21,6 +21,14 @@ class Saved extends Component {
     API.getSavedBooks().then(res => this.setState({ savedBooks: res.data }));
   };
 
+  handleDeleteClick = (event, bookId) => {
+    event.preventDefault();
+    API.deleteBook(bookId)
+    console.log("this book has been deleted!")
+    .then(res => this.loadSavedBooks())
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <Container>
@@ -30,7 +38,7 @@ class Saved extends Component {
             {!this.state.savedBooks.length ? (
               <h2>No Books to Display</h2>
             ) : (
-              <BookList>
+              <SavedBookList>
                 {this.state.savedBooks.map(item => {
                   return (
                     <BookListItem
@@ -45,7 +53,7 @@ class Saved extends Component {
                     />
                   );
                 })}
-              </BookList>
+              </SavedBookList>
             )}
           </Col>
         </Row>
